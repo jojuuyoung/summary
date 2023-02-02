@@ -11,13 +11,13 @@
  * you don't need to include these on your own site.
  */
 
- @import url(http://fonts.googleapis.com/css?family=Roboto);
+ @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
  body {
    margin: 0;
    padding: 40px 0 0 0;
-   font-family: sans-serif;
-   color: #333;
+   font-family:'Source Code Pro', monospace;
+   color: #000;
    line-height: 140%;
  }
  
@@ -121,7 +121,8 @@
  
  p,
  [class^="hvr-"] {
-     font-family: 'Roboto', sans-serif;
+  font-family:'Source Code Pro', monospace;
+  font-weight: 500;
  }
  
  [class^="hvr-"] {
