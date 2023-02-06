@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	const showHeader = gsap.from('.header', {
+	const showHeader = gsap.from('.scrolling', {
         yPercent: -100,
         paused: true,
         duration: 0.3
@@ -63,5 +63,6 @@ $(document).ready(function(){
         yp += ((y - yp)/6);
         $cursor.css({left: xp +'px', top: yp +'px'});
     }, 15);
+
 
 });
