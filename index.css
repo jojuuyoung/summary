@@ -1,19 +1,62 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-			body {margin: 0; padding: 0; font-family: 'Source Code Pro', monospace; color: #000; background: #F0EDE6;}
-			h1 {font-size: 4em;}
-			.sup {
-     vertical-align: super;
-     margin-left: -1em;
-     padding: .21875em;
-     line-height: 100%;
-     font-size: .21875em;
-     border: #eee solid 1px;
-     border-radius: 4px;
-     color: inherit;
- }
- 
- .sup:hover {
-     background: #eee;
- }
- 
+
+html, body {
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Source Code Pro', monospace; 
+    color: #000; 
+    background: #edeae5; 
+    min-width: 320px;
+    height: 100%;
+    cursor: url('/img/cur-defalt.png'),auto;
+}
+a {cursor: url('/img/cur-hover.png'),auto;}
+
+h1 {font-size: max(50px, 6vw);}
+.sup {
+    vertical-align: super;
+    margin-left: -1em;
+    padding: .21875em;
+    line-height: 100%;
+    font-size: .21875em;
+    border: #eee solid 1px;
+    border-radius: 4px;
+    color: inherit;
+}
+.sup:hover {
+    background: #eee;
+}
+
+/* html.hover * {cursor: none;} */
+/* body:hover .cursor {opacity: 1;} */
+/* .wrap {overflow: hidden; height: 100%; position: relative; background-color: #222;} */
+.cursor {/*opacity: 0;*/ transition: opacity 0.3s; pointer-events: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 100; color: #fff;}
+.cursor-inner {position: absolute;}
+.cursor-pointer {width: 200px; height: 200px; transform: translate(-50%,-50%); transition: all 0.2s;}
+.cursor .arrow {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); background: #ff5722; width: 20px; height: 20px; border-radius: 50%;}
+.cursor .arrow:before {display: none; content: ''; position: absolute; right: 0; top: 50%; margin-top: -23px; transform: rotate(45deg); width: 30px; height: 30px; border-right: 15px solid #fff; border-top: 15px solid #fff;}
+
+.cursor-pointer span {display: inline-block; font-size: 22px; height: 195px; position: absolute; width: 20px; left: 50%; top: 3px; margin-left: -7px; text-align: center;}
+.rolling-txt {position: relative; opacity: 0; transition: all 0.2s; width: 200px; height: 200px; animation: rollingAni linear infinite 20s;}
+
+@keyframes rollingAni {
+  0%  {transform: rotate(0deg); transform-origin: center center;}
+  100% {transform: rotate(360deg);}
+}
+
+.index-wrap {background: url('/_user/img/intro/bg-intro01.jpg') 50% no-repeat;background-size: cover;font-size: 14px;color: #fff;font-family: 'NotoSans', sans-serif;display: flex;flex-direction: column;justify-content: space-between;position: relative;height: 100%;overflow-y: auto;transition: background 0.3s;}
+.index-wrap>* {position: relative;}
+.index-wrap:before {content: ''; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,0.3);}
+ /* 텍스트 에니메이션 s */
+
+.header {position: fixed; background: #fff; z-index: 10; width: 100%;}
+
+.scrolling-wrap {position: fixed; z-index: 10; width: 100%; background: #fff; text-transform: uppercase; font-size: 45px; padding: 9px 0; overflow: hidden; border-bottom: 2px solid #222; border-top: 1px solid #111;}
+.scrolling-text {-webkit-font-smoothing: antialiased; width: fit-content; display: flex; flex: auto; flex-direction: row;}
+.scrolling-text .text {flex-shrink: 0; padding: 0 4px; font-weight: bold; background: linear-gradient(90deg, rgba(36,131,199,1) 0%, rgba(169,0,129,1) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+
+@media screen and (min-width: 1024px){
+    .scrolling-wrap {font-size: 75px;}
+}
+/* 텍스트 에니메이션 e */

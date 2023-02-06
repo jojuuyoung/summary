@@ -1,73 +1,67 @@
 $(document).ready(function(){
 
-    /*
-	 * JOYFUL EASTEREGG
-	*/
-	if( !$('html').hasClass('mobile') ) {
-		var easteregg_image_flag = true;
-		var easteregg_image_set = [
-			'/img/layer-flower.png',
-			'/img/layer-bone.png',
-			'/img/layer-fish.png',
-			'/img/layer-cloud.png',
-			'/img/layer-rainbow.png',
-			'/img/layer-grass.png',
-			'/img/layer-meat.png',
-			'/img/layer-sushi.png',
-			'/img/layer-watermelon.png'
-		]
+	const showHeader = gsap.from('.header', {
+        yPercent: -100,
+        paused: true,
+        duration: 0.3
+    }).totalProgress(1);
 
-		$('.main-container').on('mouseenter', 'a, button, input, .product-detail, .about-contact__map', function () {
-			easteregg_image_flag = false;
-		});
-		$('.main-container').on('mouseleave', 'a, button, input, .product-detail, .about-contact__map', function () {
-			easteregg_image_flag = true;
-		});
+    const txt = gsap.from('.scrolling-text .text', {
+        yPercent: 0,
+        paused: true,
+        duration: 0.3
+    }).totalProgress(1);
 
-		$('.main-container').on('click', function(){
+    ScrollTrigger.create({
+        start: "top top",
+        end: 99999,
+        onUpdate: (self) => {
+            self.direction === -1 ? showHeader.play() : showHeader.reverse()
+        }
+    });
 
-			if( !easteregg_image_flag ) { return; }
+    //marquee scroll
+    let currentScroll = 0;
+    let isScrollingDown = true;
 
-			var evt = window.event;
-			var $this = $(this);
+    const rollingTxt = gsap.to(".scrolling-text .text", {
+        xPercent: -100,
+        repeat: -1,
+        duration: 20,
+        ease: "linear"
+    }).totalProgress(0.5);
 
-			var egg_image = '';
-			egg_image += '<figure class="jt-joyful-easteregg">';
-	 			egg_image += '<img src="'+ window.location.origin + easteregg_image_set[Math.floor(Math.random() * 9)] +'">';
-		 	egg_image +='</figure>';
+    gsap.set(".scrolling-text", {xPercent: -50});
 
-			$this.append( egg_image );
+    window.addEventListener("scroll", function(){
+        if ( window.pageYOffset > currentScroll ) {
+            isScrollingDown = true;
+        } else {
+            isScrollingDown = false;
+        }
 
-			var egg_x = evt.pageX - $this.offset().left;
-			var egg_y = evt.pageY - $this.offset().top;
+        gsap.to(rollingTxt, {
+            timeScale: isScrollingDown ? 1 : -1
+        });
 
-			var $egg_el = $this.find('.jt-joyful-easteregg:last-child');
-			$egg_el.css({'left':egg_x,'top':egg_y});
+        currentScroll = window.pageYOffset
+    });
 
-			gsap.fromTo($egg_el, .15, {
-				scale: 0,
-				rotation: 120,
-			},{
-				scale: 1,
-				rotation: 0,
-				ease: 'back.out(1.2)',
-				onStart: function(){
-					$egg_el.css('display','block');
-				},
-				onComplete: function(){
-					gsap.to($egg_el, .7, {
-						autoAlpha: 0,
-						scale: 0.8,
-						delay: 0.1,
-						onComplete: function(){
-							$egg_el.remove();
-						}
-					});
-				}
-			});
 
-		});
-	}
+	//cursor custom
+    let $cursor = $('.cursor-inner');
+    let x = 0, y = 0;
+    let xp = 0, yp = 0;
 
+    $('body').on('mousemove',function(e){
+        x = e.pageX;
+        y = e.pageY;
+    });
+
+    setInterval(function(){
+        xp += ((x - xp)/6);
+        yp += ((y - yp)/6);
+        $cursor.css({left: xp +'px', top: yp +'px'});
+    }, 15);
 
 });
