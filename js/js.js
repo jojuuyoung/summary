@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-	const showHeader = gsap.from('.scrolling', {
-        yPercent: -100,
-        paused: true,
-        duration: 0.3
-    }).totalProgress(1);
+	// const showHeader = gsap.from('.scrolling', {
+    //     yPercent: -100,
+    //     paused: true,
+    //     duration: 0.3
+    // }).totalProgress(1);
 
     const txt = gsap.from('.scrolling-text .text', {
         yPercent: 0,

@@ -10,7 +10,11 @@ html, body {
     height: 100%;
     cursor: none;
 }
-h1 {font-size: max(50px, 6vw);}
+.main {
+    padding: 1.67vw;
+    box-sizing: border-box;
+}
+h1 {font-size: max(50px, 6vw); /*font-size: clamp(1rem, 2.5vw, 2rem);*/}
 .sup {
     vertical-align: super;
     margin-left: -1em;
@@ -25,8 +29,7 @@ h1 {font-size: max(50px, 6vw);}
     background: #eee;
 }
 .intro-wrap {
-    padding-left: 2.7777777778vw;
-    padding-right: 2.7777777778vw;
+    border: 3px solid #000;
 }
 
 /* html.hover * {cursor: none;} */
