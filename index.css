@@ -3,7 +3,7 @@
 html, body {
     margin: 0; 
     padding: 0; 
-    font-family: 'Source Code Pro', monospace; 
+    font-family: 'basic', Arial, Helvetica, sans-serif; 
     color: #000; 
     background: #edeae5; 
     min-width: 320px;
@@ -24,6 +24,10 @@ h1 {font-size: max(50px, 6vw);}
 .sup:hover {
     background: #eee;
 }
+.intro-wrap {
+    padding-left: 2.7777777778vw;
+    padding-right: 2.7777777778vw;
+}
 
 /* html.hover * {cursor: none;} */
 /* body:hover .cursor {opacity: 1;} */
@@ -34,7 +38,7 @@ h1 {font-size: max(50px, 6vw);}
 .cursor .arrow:before {display: none; content: ''; position: absolute; right: 0; top: 50%; margin-top: -23px; transform: rotate(45deg); width: 30px; height: 30px; border-right: 15px solid #fff; border-top: 15px solid #fff;}
 
 .scrolling {position: fixed; background: #fff; z-index: 10; width: 100%;}
-.scrolling-wrap {position: fixed; z-index: 10; width: 100%; text-transform: uppercase; font-size: 45px; padding: 9px 0; overflow: hidden;}
+.scrolling-wrap {position: fixed; z-index: 10; width: 100%; text-transform: uppercase; font-size: 45px; padding: 9px 0; /*overflow: hidden;*/}
 .scrolling-text {-webkit-font-smoothing: antialiased; width: fit-content; display: flex; flex: auto; flex-direction: row;}
 .scrolling-text .text {flex-shrink: 0; padding: 0 4px; font-weight: bold;}
 @media screen and (min-width: 1024px){
