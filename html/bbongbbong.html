@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>📌💘👋🌈🧠💛🎵🙊🌞🌷</title>
+	<link rel="stylesheet" href="../reset.css">
+	<link rel="stylesheet" href="../index.css">
+	<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+	<script src="../js/ScrollTrigger.min.js"></script>
+    <script src="../js/gsap.min.js"></script>
+	<!-- <script src="../js/js.js"></script> -->
+</head>
+	<div class="main main-container wrap">
+		<div class="cursor">
+			<div class="cursor-inner">
+				<div class="cursor-pointer">
+					<em class="arrow">💖</em>
+				</div>
+			</div>
+		</div>
+		<section class="flex scene">
+			<h1 class="header">
+				<span>Hellow, zozoworld! 👀</span>
+			</h1>
+			<div class="confetti"></div>
+		</section>
+	</div>
+    <script>
+        //뿅뿅아이콘
+"use strict";
+
+(function () {
+  const wrapper = document.querySelector(".confetti");
+  const isAnimationOk = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  const icons = ["🎉", "✨", "💜", "🖤", "👸🏻", "💻"];
+  const iconCount = 18;
+  var elements = [];
+  init();
+  function init() {
+    for (let i = 0; i < iconCount; i++) {
+      createIcon();
+    }
+    gsap.set(elements, {
+      transformOrigin: "50% 50%",
+      scale: 0
+    });
+  }
+  function createIcon(icon) {
+    if (icon === null || icon === undefined) {
+      icon = document.createElement("span");
+      icon.classList.add("confetti__item");
+      wrapper.appendChild(icon);
+      elements.push(icon);
+    }
+    icon.innerText = gsap.utils.random(icons);
+    if (isAnimationOk) animateIcon(icon);
+  }
+  function animateIcon(icon) {
+    let durationFall = gsap.utils.random(1.75, 2.5);
+    let durationFade = .3;
+    let delay = gsap.utils.random(0, .75);
+    let xDirection = gsap.utils.random(0, 1) > .5 ? 1 : -1;
+    let x = (gsap.utils.random(0, window.outerWidth / 4) + 100) * xDirection;
+    let tl = new gsap.timeline();
+    tl.to(icon, {
+      repeat: -1,
+      delay: delay,
+      keyframes: [{
+        scale: 1,
+        duration: .1
+      }, {
+        y: `random(${-window.outerHeight / 4}, 0)`,
+        ease: Back.easeOut.config(5),
+        duration: durationFall
+      }, {
+        x: (gsap.utils.random(0, window.outerWidth / 4) + 100) * xDirection,
+        ease: "Power1.easeOut",
+        duration: durationFall,
+        delay: -durationFall
+      }, {
+        opacity: 0,
+        scale: 4,
+        ease: "Power1.easeOut",
+        duration: durationFade,
+        delay: -durationFade
+      }]
+    }, "<");
+  }
+})();
+    </script>
+</html>

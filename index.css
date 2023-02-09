@@ -67,18 +67,23 @@ h1 {font-size: max(50px, 6vw); /*font-size: clamp(1rem, 2.5vw, 2rem);*/}
     height: 100%;
   }
   
+  a {
+    text-decoration: none;
+    color: black;
   
+  }
   body {
     font-family: "Monument";
     font-size: 80px;
     line-height: 70px;
-    background: #70b8ff;
+    background:#e99c8b;
+    /* background:#ffd12a; */
     overflow: hidden;
   }
   
   .container {
     position: relative;
-    height: 70px;
+    height: 6vw;
     overflow: hidden;
     outline: 1px transparent;
   }
@@ -88,7 +93,10 @@ h1 {font-size: max(50px, 6vw); /*font-size: clamp(1rem, 2.5vw, 2rem);*/}
     top: 0;
     left: 0;
     list-style: none;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    font-size: max(50px, 6.5vw);
+    line-height: 1;
+    word-break: break-word;
   }
   
   .menu {
