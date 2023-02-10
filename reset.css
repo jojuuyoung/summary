@@ -51,5 +51,8 @@ table {
 	font-family: "basic";
 	src: url("/font/basis-grotesque-medium-pro.woff2") format("woff2");
 	font-weight: 500;
-	font-style: normal;}
+	font-style: normal;
+}
+*::selection {color:#fff; background:whitesmoke;}
+*::-moz-selection {color:#fff; background:whitesmoke;}
   

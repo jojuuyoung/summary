@@ -76,8 +76,8 @@ h1 {font-size: max(50px, 6vw); /*font-size: clamp(1rem, 2.5vw, 2rem);*/}
     font-family: "Monument";
     font-size: 80px;
     line-height: 70px;
-    background:#e99c8b;
-    /* background:#ffd12a; */
+    /* background:#fdb67e; */
+    background:#7dc384;
     overflow: hidden;
   }
   
