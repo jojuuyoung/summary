@@ -6,46 +6,46 @@ $(document).ready(function(){
     //     duration: 0.3
     // }).totalProgress(1);
 
-    const txt = gsap.from('.scrolling-text .text', {
-        yPercent: 0,
-        paused: true,
-        duration: 0.3
-    }).totalProgress(1);
+    // const txt = gsap.from('.scrolling-text .text', {
+    //     yPercent: 0,
+    //     paused: true,
+    //     duration: 0.3
+    // }).totalProgress(1);
 
-    ScrollTrigger.create({
-        start: "top top",
-        end: 99999,
-        onUpdate: (self) => {
-            self.direction === -1 ? showHeader.play() : showHeader.reverse()
-        }
-    });
+    // ScrollTrigger.create({
+    //     start: "top top",
+    //     end: 99999,
+    //     onUpdate: (self) => {
+    //         self.direction === -1 ? showHeader.play() : showHeader.reverse()
+    //     }
+    // });
 
     //marquee scroll
-    let currentScroll = 0;
-    let isScrollingDown = true;
+    // let currentScroll = 0;
+    // let isScrollingDown = true;
 
-    const rollingTxt = gsap.to(".scrolling-text .text", {
-        xPercent: -100,
-        repeat: -1,
-        duration: 20,
-        ease: "linear"
-    }).totalProgress(0.5);
+    // const rollingTxt = gsap.to(".scrolling-text .text", {
+    //     xPercent: -100,
+    //     repeat: -1,
+    //     duration: 20,
+    //     ease: "linear"
+    // }).totalProgress(0.5);
 
-    gsap.set(".scrolling-text", {xPercent: -50});
+    // gsap.set(".scrolling-text", {xPercent: -50});
 
-    window.addEventListener("scroll", function(){
-        if ( window.pageYOffset > currentScroll ) {
-            isScrollingDown = true;
-        } else {
-            isScrollingDown = false;
-        }
+    // window.addEventListener("scroll", function(){
+    //     if ( window.pageYOffset > currentScroll ) {
+    //         isScrollingDown = true;
+    //     } else {
+    //         isScrollingDown = false;
+    //     }
 
-        gsap.to(rollingTxt, {
-            timeScale: isScrollingDown ? 1 : -1
-        });
+    //     gsap.to(rollingTxt, {
+    //         timeScale: isScrollingDown ? 1 : -1
+    //     });
 
-        currentScroll = window.pageYOffset
-    });
+    //     currentScroll = window.pageYOffset
+    // });
 
 
 	//cursor custom
