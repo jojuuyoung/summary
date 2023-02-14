@@ -1,85 +1,58 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
 html, body {
     margin: 0; 
-    padding: 0; 
     font-family: 'basic', Arial, Helvetica, sans-serif; 
     color: #000; 
-    background: #edeae5; 
     min-width: 320px;
     height: 100%;
-    cursor: none;
+    background: #fdb67e;
+    /*background:#7dc384;*/
 }
-/* .main {
+body{
     padding: 1.67vw;
     box-sizing: border-box;
-} */
-h1 {font-size: max(50px, 6vw); /*font-size: clamp(1rem, 2.5vw, 2rem);*/}
-.sup {
-    vertical-align: super;
-    margin-left: -1em;
-    padding: .21875em;
-    line-height: 100%;
-    font-size: .21875em;
-    border: #eee solid 1px;
-    border-radius: 4px;
-    color: inherit;
 }
-.sup:hover {
-    background: #eee;
-}
-.intro-wrap {
+.main-container {
     border: 3px solid #000;
+    height: 100%;;
 }
-
-/* html.hover * {cursor: none;} */
-/* body:hover .cursor {opacity: 1;} */
-/* .wrap {overflow: hidden; height: 100%; position: relative; background-color: #222;} */
-.cursor {/*opacity: 0;*/ transition: opacity 0.3s; pointer-events: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 100;}
-.cursor-inner {position: absolute;}
-.cursor .arrow {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: 2vw; width: 50px; height: 50px;}
-.cursor .arrow:before {display: none; content: ''; position: absolute; right: 0; top: 50%; margin-top: -23px; transform: rotate(45deg); width: 30px; height: 30px; border-right: 15px solid #fff; border-top: 15px solid #fff;}
-
-.scrolling {position: fixed; background: #fff; z-index: 10; width: 100%;}
-.scrolling-wrap {position: fixed; z-index: 10; width: 100%; text-transform: uppercase; font-size: 45px; padding: 9px 0; /*overflow: hidden;*/}
-.scrolling-text {-webkit-font-smoothing: antialiased; width: fit-content; display: flex; flex: auto; flex-direction: row;}
-.scrolling-text .text {flex-shrink: 0; padding: 0 4px; font-weight: bold;}
-@media screen and (min-width: 1024px){
-    .scrolling-wrap {font-size: 75px;}
+.cursor {
+    /*opacity: 0;*/ 
+    transition: opacity 0.3s; 
+    pointer-events: none; 
+    position: fixed; 
+    left: 0; 
+    right: 0; 
+    top: 0; 
+    bottom: 0; 
+    z-index: 100;
 }
-/* 텍스트 에니메이션 e */
-
-@font-face {
-    font-family: "Monument";
-    src: url("https://res.cloudinary.com/holatresveces/raw/upload/v1573001944/MonumentExtended-Ultrabold_clzvv7.otf");
-  }
-  
-  *,
-  *:before,
-  *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html,
-  body {
-    height: 100%;
-  }
-  
-  a {
-    text-decoration: none;
-    color: black;
-  
-  }
-  body {
-    font-family: "Monument";
-    font-size: 80px;
-    line-height: 70px;
-    /* background:#fdb67e; */
-    background:#7dc384;
-    overflow: hidden;
-  }
+.cursor-inner {
+    position: absolute;
+}
+.cursor .arrow {
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%,-50%); 
+    font-size: 2vw; 
+    width: 50px; 
+    height: 50px;
+}
+.cursor .arrow::before {
+    display: none; 
+    content: ''; 
+    position: absolute; 
+    right: 0; 
+    top: 50%; 
+    margin-top: -23px; 
+    transform: rotate(45deg); 
+    width: 30px; 
+    height: 30px; 
+    border-right: 15px solid #fff; 
+    border-top: 15px solid #fff;
+}
   
   .container {
     position: relative;
@@ -141,18 +114,3 @@ h1 {font-size: max(50px, 6vw); /*font-size: clamp(1rem, 2.5vw, 2rem);*/}
 		position: absolute;
 }
 
-.ani {
-  width: 50px;
-  height: 50px;
-  transform: perspective(200px) rotateY(45deg);
-  animation: spin 0.2s ease-in 3s 8 both;
-}
-
-@keyframes spin {
-  0% {
-      transform: rotateY(0deg);
-  }
-  100% {
-      transform: rotateY(360deg);
-  }
-}
